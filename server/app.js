@@ -12,21 +12,13 @@ var todos = require('./routes/todos');
 var app = express();
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017');
+mongoose.connect('mongodb://localhost/Todos');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
     console.log('db connection started');
 });
-
-
-var todoSchema = mongoose.Schema({
-    title: String,
-    user: String
-});
-
-var Todos = mongoose.model('Todos', todoSchema);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
