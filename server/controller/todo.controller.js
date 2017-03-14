@@ -3,7 +3,8 @@ var helper = require('../helper/todo.helper');
 module.exports = {
     getTodos: getTodos,
     deleteTodo: deleteTodo,
-    deleteThisTodo: deleteThisTodo
+    deleteThisTodo: deleteThisTodo,
+    createTodo: createTodo
 };
 
 function getTodos(req, res) {
@@ -17,4 +18,8 @@ function deleteTodo(req, res) {
 
 function deleteThisTodo(req, res) {
     helper.deleteThisTodo();
+}
+
+function createTodo(req, res) {
+    helper.createTodo();
 }
