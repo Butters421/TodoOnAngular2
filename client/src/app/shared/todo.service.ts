@@ -54,7 +54,7 @@ export class TodoService {
         if(index > -1){
             this.todos.splice(index,1);
         }
-        
+
     }
 
     checkedForDuplicate(title: string) {
@@ -73,7 +73,7 @@ export class TodoService {
             this.checkedAll = false;
 
             return this.http
-                .post('http://localhost:3001/api/todo',{title: title})
+                .post('http://localhost:3001/api/todos',{title: title})
                 .toPromise()
                 .then((res: any) => res.json())
                 .then(todo  => {
@@ -82,7 +82,7 @@ export class TodoService {
                 .catch(this.handleError);
 
         }
-        
+
     }
 
     deleteAllTodo(){

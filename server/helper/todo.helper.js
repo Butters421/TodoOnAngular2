@@ -1,8 +1,7 @@
 var mongoose = require('mongoose');
 
 var todoSchema = mongoose.Schema({
-    title: String,
-    name: String
+    title: String
 });
 
 module.exports = {
@@ -10,12 +9,6 @@ module.exports = {
     deleteTodo: deleteTodo,
     deleteThisTodo: deleteThisTodo,
     createTodo: createTodo
-};
-
-
-
-var todo = {
-    title: 'Вот это первая хрень'
 };
 
 function getTodos(req, res, err) {
@@ -34,14 +27,17 @@ function  deleteThisTodo(req, res, err) {
 function createTodo(req, res, err) {
     var Todos = mongoose.model('Todos', todoSchema);
 
+    var title = req;
+
     var butters = new Todos ({
-        title: 'butters',
-        name: 'aaaaaa'
+        title: title
     });
 
     butters.save(function (err) {
         if (err) console.log(err);
         console.log('Добавлена новая запись');
     });
+
+    res.send('Добавлено');
 
 }
