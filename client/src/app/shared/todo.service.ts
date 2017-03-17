@@ -75,9 +75,14 @@ export class TodoService {
             return this.http
                 .post('http://localhost:3001/api/todos',{title: title})
                 .toPromise()
-                .then((res: any) => res.json())
+                .then((res: any) => {
+                  debugger;
+                  var x = res.json();
+                  return x;
+                })
                 .then(todo  => {
-                    this.todos.push(todo)
+                  debugger;
+                  this.todos.push(todo)
                 })
                 .catch(this.handleError);
 

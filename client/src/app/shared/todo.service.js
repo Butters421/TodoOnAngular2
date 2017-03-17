@@ -99,7 +99,7 @@ let TodoService = class TodoService {
     }
 };
 TodoService = __decorate([
-    core_1.Injectable(), 
+    core_1.Injectable(),
     __metadata('design:paramtypes', [http_1.Http])
 ], TodoService);
 exports.TodoService = TodoService;

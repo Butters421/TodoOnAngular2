@@ -9,7 +9,6 @@ module.exports = {
 
 function getTodos(req, res) {
     helper.getTodos();
-
 }
 
 function deleteTodo(req, res) {
@@ -21,5 +20,12 @@ function deleteThisTodo(req, res) {
 }
 
 function createTodo(req, res) {
-    helper.createTodo();
+    var title = req.body.title;
+    return helper.createNewTodo(title).then(function (data) {
+        res.send(data);
+    }).catch(function (err) {
+        console.log(err);
+        res.status(400);
+        res.send('None shall pass!');
+    });
 }
