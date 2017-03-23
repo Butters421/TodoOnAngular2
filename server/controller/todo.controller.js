@@ -1,4 +1,5 @@
 var helper = require('../helper/todo.helper');
+var Todo =  require('../models/todo.models');
 
 module.exports = {
     getTodos: getTodos,
@@ -8,7 +9,12 @@ module.exports = {
 };
 
 function getTodos(req, res) {
-    helper.getTodos();
+    Todo.find().then((todos) => {
+        res.send(todos);
+    }, (e) => {
+        res.status(400).send(e);
+    });
+
 }
 
 function deleteTodo(req, res) {
@@ -29,3 +35,4 @@ function createTodo(req, res) {
         res.send('None shall pass!');
     });
 }
+

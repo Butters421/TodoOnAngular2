@@ -1,7 +1,7 @@
 <form class="form-vertical" novalidate (ngSubmit)="createItem(title); todoForm.reset()" #todoForm="ngForm">
     <div class="form-group  col-sm-10">
        <input type="text" class="form-control" name="title"
-               [(ngModel)]="title" maxlength="50" minlength="5"
+               [(ngModel)]="title" maxlength="50" minlength="4"
                placeholder="Ты уверен что хочешь здесь что-нибудь написать!?!?!?" required
                #name="ngModel">
         <div *ngIf="name.errors && (name.dirty || name.touched)"
@@ -22,7 +22,7 @@
 
     </div>
     <div class="col-sm-2">
-        <button class="btn btn-primary custom-btn" type="submit" [disabled]="todoForm.form.invalid">Добавить</button>
+        <button class="btn btn-primary custom-btn" type="submit">Добавить</button>
     </div>
 
 </form>

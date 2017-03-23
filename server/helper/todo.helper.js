@@ -1,4 +1,5 @@
 var Todo =  require('../models/todo.models');
+var mongoose = require('mongoose');
 
 
 module.exports = {
@@ -8,9 +9,8 @@ module.exports = {
     createNewTodo: createNewTodo
 };
 
-function getTodos() {
-
-    console.log('полная лажа');
+function getTodos(res) {
+    res.send();
 }
 
 function deleteTodo() {
@@ -25,5 +25,6 @@ function createNewTodo(title) {
     var todo = new Todo({
         title: title
     });
-    return todo.save();
+    return todo.save()
+
 }

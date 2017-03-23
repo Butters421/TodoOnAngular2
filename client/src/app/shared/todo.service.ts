@@ -15,7 +15,7 @@ export class TodoService {
     checkedAll: boolean = false;
 
 
-    private todosUrl = 'http://localhost:3001/api/todo';
+    private todosUrl = 'http://localhost:3001/api/todos';
 
     constructor(private http: Http){}
 
@@ -60,7 +60,9 @@ export class TodoService {
     checkedForDuplicate(title: string) {
         let duplicate = false;
         this.todos.forEach((index) => {
-            if(!duplicate && index.title === title) duplicate = true;
+            if(!duplicate && index.title === title) {
+              duplicate = true;
+            }
         });
         return duplicate;
     }
@@ -76,7 +78,6 @@ export class TodoService {
                 .post('http://localhost:3001/api/todos',{title: title})
                 .toPromise()
                 .then((res: any) => {
-                  debugger;
                   var x = res.json();
                   return x;
                 })
